@@ -89,7 +89,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('postgresql://blog_db_tmjt_user:U6L2scYB0fTzldI1XnmioomBvNBw4UMo@dpg-d64vvmn5r7bs739j6nqg-a/blog_db_tmjt'))
+    'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL')
+    )
 }
 
 # REST Framework Configuration
