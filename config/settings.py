@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -87,11 +88,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+DATABASES = DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('postgresql://blog_db_tmjt_user:U6L2scYB0fTzldI1XnmioomBvNBw4UMo@dpg-d64vvmn5r7bs739j6nqg-a/blog_db_tmjt'))
 }
 
 # REST Framework Configuration
